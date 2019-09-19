@@ -90,6 +90,8 @@ class DiscordActivityListener extends AbstractEventListener
 				} catch (\Exception $e) {
 					$logger->err("Discord: error when fetching comment : " . $e->getMessage());
 				}
+				//don't treat single comments, waith for the comment.batch
+				return;
 				break;
 			default:
 				$logger->info("Discord: event not treated " . $eventString);
